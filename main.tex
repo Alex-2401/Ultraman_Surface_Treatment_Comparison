@@ -1,10 +1,18 @@
-\documentclass[twocolumn]{article}
+%\documentclass[twocolumn]{article}
+
+\documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
+
+\usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage[backend=biber,style=nature,sorting=none,maxcitenames=3]{biblatex}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{siunitx}
+
+\usepackage{subcaption}
+
 \addbibresource{references.bib}
 
 \title{Tribological Performance Comparison of Surface Treatments of CR7V Die Steel Under Multi-Cycle Metal Forming Conditions}
@@ -17,20 +25,162 @@
 \maketitle
 
 \begin{abstract}
-Abstract text here.
+Abstract text here. Summarise the motivation, testing method, materials compared, main results (friction, wear trends), and implications for surface treatment selection.
 \end{abstract}
 
-\section*{Introduction}
-Text here.
+\section{Introduction}
+The performance and durability of forming dies are strongly influenced by their tribological behaviour under repeated contact and elevated temperatures. Friction and wear between the die and workpiece affect material flow, surface quality, and tool life, making die material selection a critical factor in manufacturing efficiency and cost. Previous studies have examined tool steels and surface treatments such as nitriding and hardening, but most conventional tribological tests are limited in duration and throughput, providing only partial insight into long-term performance.
 
-\section*{Methods}
-Text here.
+% citations for previouse tests?
 
-\section*{Results and Discussion}
-Text here.
+To address these limitations, an automated multi-cycle testing approach has been developed using the ULTRAMAN tribological simulator. The system enables thousands of repeatable scratch cycles under controlled temperature, and lubrication conditions, providing continuous data on friction evolution and wear progression. This approach allows quantitative comparison of die materials under conditions representative of extended forming operations.
 
-\section*{Conclusion}
-Text here.
+% lubricated tests too? or only dry sliding
+
+This study focuses on the effect of surface treatment on tribological behaviour. Four CR7V variants were tested: untreated, hardened, and two nitrided conditions (N1 and N2). These treatments were selected to represent typical industrial surface-hardening processes used to extend tool life. Tests were performed under identical dry sliding and temperature conditions to evaluate how each treatment influences frictional stability and wear resistance during extended operation.
+
+\section{Experimental Methodology}
+
+\subsection{Test System}
+All tests were conducted using the ULTRAMAN automated tribological simulator. The system integrates a UR10 robotic arm, load cell, contact heater, and lubricant spraying unit within a controlled mechanical frame. The robotic arm performs repeated linear scratching motions with fixed load and velocity, while the transmission system advances the workpiece between cycles to prevent overlap of wear tracks.
+
+The contact heater maintains the surface temperature of the workpiece through PID regulation, allowing tests to be performed at set thermal conditions. Normal and tangential forces are measured by the load cell during each scratch, and images of both the workpiece and pinhead are captured automatically after each cycle. All data are synchronised and stored through the system’s control software for subsequent analysis.
+
+\subsection{Materials and Sample Preparation}
+Four variants of CR7V die steel were evaluated: untreated (baseline), hardened (CR7V-H), and two nitrided conditions (CR7V-N1 and CR7V-N2). These treatments represent common industrial surface-hardening methods used to enhance wear resistance and reduce adhesion in forming applications. All samples were machined to identical dimensions and cleaned with ethanol before testing.
+
+The workpiece material was aluminium alloy 6082, chosen for its similarity to alloy 6111 used in automotive sheet forming. Tests were carried out under dry conditions using the same pinhead geometry and material across all runs to ensure comparable contact conditions.
+
+All tests were conducted under dry conditions unless otherwise stated. The same pinhead geometry and material were used for all tests to ensure comparable contact conditions across different surface treatments.
+
+\subsection{Test Conditions}
+All tests were performed under dry sliding conditions using the ULTRAMAN automated tribological simulator. Each test consisted of a series of consecutive linear scratches executed by the robotic arm over a 75~mm distance. The normal load was fixed at 6~N, consistent with typical forming contact pressures, and the scratching velocity was set to 250~mm/s \textcolor{red}{(to be confirmed)}.
+
+The contact heater maintained the workpiece surface at controlled temperatures to simulate different forming environments. Tests were conducted at \textcolor{red}{(insert temperature values, e.g. 25°C, 300°C, 400°C, and 450°C)}, with temperature monitored by a thermocouple and regulated through PID control.
+
+The number of cycles was selected to represent extended forming operation, with each test comprising up to 400 scratches. Between cycles, the strip feeder advanced the workpiece by a fixed increment to prevent overlap of wear tracks. All tests were performed under identical mechanical and thermal conditions to allow direct comparison between materials.
+
+\subsection{Data Acquisition and Processing}
+Normal and tangential forces were recorded continuously during each scratch using the load cell mounted on the robotic arm. Data were sampled at x~Hz \textcolor{red}{(to be confirmed)} and stored automatically by the control software. The raw force signals were filtered using a low-pass filter to remove high-frequency noise before further analysis.
+
+The coefficient of friction (COF) was calculated for each cycle as the ratio of tangential to normal force. Average COF values were determined over the steady-state portion of each scratch, excluding initial transient regions. Multi-cycle results were obtained by averaging the COF across all cycles at each temperature.
+
+Post-test images of the workpiece and pinhead were acquired automatically after each cycle using the integrated cameras. These images were used to correlate visual surface changes with the measured friction data. All data were synchronised and archived in a structured database for analysis and comparison between materials.
+
+\section{Results}
+
+% Coefficient of Friction Evolution
+% You show dynamic curves: COF on the y-axis, cycle number on the x-axis.
+% These tell the story of what happens during the test — running-in, transitions, stability.
+% Example:
+% “CR7V maintained stable friction for all 400 cycles, while P20 showed a gradual increase.”
+
+% Temperature Dependence
+% You summarise the final outcomes across conditions.
+% The data is condensed: mean COF values from each test (extracted from those curves).
+% Example:
+% “The average COF increased from 0.32 at 25°C to 0.58 at 450°C for P20.”
+
+\subsection{Coefficient of Friction Evolution}
+
+The coefficient of friction (COF) for each CR7V surface condition was evaluated as a function of cycle number under dry sliding conditions. Figure~\ref{fig:cof_vs_cycle_treatments} shows representative COF trends for untreated CR7V, hardened CR7V-H, and two nitrided variants (CR7V-N1 and CR7V-N2) at several surface temperatures. Each dataset corresponds to a continuous multi-cycle test performed under identical mechanical conditions.
+
+At room temperature, all samples exhibited a short running-in phase followed by a stable friction regime. As temperature increased, differences between surface treatments became more pronounced. Both nitrided variants maintained lower and more stable COF values than the untreated and hardened samples, indicating improved resistance to adhesive wear. The hardened sample showed moderate friction stability, whereas the untreated CR7V exhibited a gradual increase in COF over successive cycles, particularly at higher temperatures.
+
+\begin{figure*}[H]
+    \centering
+    % Row 1
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{cof_25C.png}
+        \caption{25~°C}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{cof_200C.png}
+        \caption{200~°C}
+    \end{subfigure}
+
+    % Row 2
+    \vspace{3mm}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{cof_300C.png}
+        \caption{300~°C}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{cof_350C.png}
+        \caption{350~°C}
+    \end{subfigure}
+
+    % Row 3
+    \vspace{3mm}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{cof_400C.png}
+        \caption{400~°C}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{cof_450C.png}
+        \caption{450~°C}
+    \end{subfigure}
+
+    \caption{Coefficient of friction as a function of cycle number for untreated, hardened, and nitrided CR7V samples at different test temperatures. Each subfigure shows all four surface conditions tested under identical dry sliding conditions.}
+    \label{fig:cof_vs_cycle_treatments}
+\end{figure*}
+
+\subsection{Temperature Dependence}
+
+Figure~\ref{fig:temperature_comparison_treatments} summarises the average steady-state COF for each surface treatment across the tested temperature range. All conditions showed an overall increase in COF with temperature, consistent with metal-to-metal contact under dry sliding. The nitrided variants, particularly CR7V-N2, maintained the lowest average COF values across all temperatures, demonstrating enhanced high-temperature frictional stability. The hardened sample exhibited intermediate performance, while the untreated CR7V showed the highest friction levels and strongest temperature sensitivity.
+
+\begin{table}[H]
+\centering
+\caption{Average steady-state coefficient of friction for each CR7V surface treatment across the tested temperature range.}
+\label{tab:avg_cof_treatments}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Temperature (°C)} & \textbf{CR7V} & \textbf{CR7V-H} & \textbf{CR7V-N1} & \textbf{CR7V-N2} \
+\hline
+25 & x & x & x & x \
+200 & x & x & x & x \
+300 & x & x & x & x \
+350 & x & x & x & x \
+400 & x & x & x & x \
+450 & x & x & x & x \
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{temperature_comparison_treatments.png}
+    \caption{Average steady-state coefficient of friction for untreated, hardened, and nitrided CR7V samples as a function of temperature.}
+    \label{fig:temperature_comparison_treatments}
+\end{figure}
+
+\subsection{Surface Observations}
+
+Optical inspection of the wear tracks (Figure~\ref{fig:wear_track_images_treatments}) revealed distinct differences between the surface-treated samples. The untreated CR7V surface showed clear evidence of adhesive wear and material transfer, while the hardened sample (CR7V-H) displayed a narrower wear track but signs of local scoring. Both nitrided variants exhibited smoother and more uniform tracks, with minimal adhesion or debris accumulation, indicating improved wear resistance.  
+
+The pinhead surfaces after testing supported these observations. Pinheads from tests on nitrided samples showed little visible material build-up, whereas those from untreated and hardened tests exhibited significant transfer of aluminium, consistent with the higher measured friction.  
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{wear_track_images_treatments.png}
+    \caption{Representative wear track images for untreated, hardened, and nitrided CR7V samples after testing at high temperature.}
+    \label{fig:wear_track_images_treatments}
+\end{figure}
+
+\subsection{Repeatability}
+
+Repeat tests for selected materials confirmed consistent COF trends, with variation in average steady-state COF within ±*x*\% \textcolor{red}{(to be confirmed)}. This demonstrates good repeatability of the automated test procedure and reliability of the measured friction data.
+
+\section{Discussion}
+
+Interpret differences in COF and wear among materials in terms of their hardness, surface treatment, and thermal stability. Relate findings to lubrication breakdown, adhesion, or oxide formation. Discuss temperature dependence and how the results align with prior literature. Comment on the advantage of using the ULTRAMAN system for high-throughput, long-duration comparisons.
+
+\section{Conclusions}
+
+Summarise the key findings quantitatively, highlighting which material performed best and under what conditions. State the industrial relevance and outline potential extensions (e.g. lubricant optimisation, wear volume analysis, microstructural characterisation).
 
 \printbibliography
 
